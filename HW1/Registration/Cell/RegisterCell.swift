@@ -48,17 +48,7 @@ final class RegisterCell: UITableViewCell, CellProtocol {
             case 1: Service.shared.email = text
             default: 
                 currentPassword += String(text.last!)
-                print(currentPassword)
-                if hiddenFlag == true {
-                    let length = textField.text!.count
-                    var hiddenString = ""
-                    for _ in 0..<length {
-                        hiddenString += "*"
-                    }
-                    textField.text! = hiddenString
-                } else {
-                    textField.text! = currentPassword
-                }
+                textField.text! = hiddenFlag ? PasswordEncrypter.encrypt(text: textField.text!) : currentPassword
                 Service.shared.password = currentPassword
             }
         }

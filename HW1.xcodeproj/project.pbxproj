@@ -20,6 +20,7 @@
 		37AF5F482C0344F900148ECF /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F472C0344F900148ECF /* Service.swift */; };
 		37AF5F4B2C0345D200148ECF /* String.ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F4A2C0345D200148ECF /* String.ext.swift */; };
 		37AF5F4D2C03595700148ECF /* EnterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F4C2C03595700148ECF /* EnterVC.swift */; };
+		37AF5F512C038C6B00148ECF /* PasswordEncrypter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F502C038C6B00148ECF /* PasswordEncrypter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		37AF5F472C0344F900148ECF /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		37AF5F4A2C0345D200148ECF /* String.ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.ext.swift; sourceTree = "<group>"; };
 		37AF5F4C2C03595700148ECF /* EnterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVC.swift; sourceTree = "<group>"; };
+		37AF5F502C038C6B00148ECF /* PasswordEncrypter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEncrypter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +74,7 @@
 			children = (
 				37AF5F492C0345C800148ECF /* Extension */,
 				37AF5F462C0344DF00148ECF /* Singleton */,
-				37AF5F432C020BA500148ECF /* UI_Funcs */,
+				37AF5F432C020BA500148ECF /* Funcs */,
 				37AF5F3E2C0206AC00148ECF /* Protocol */,
 				37AF5F352C0203EC00148ECF /* Registration */,
 				37AF5F372C02040600148ECF /* Profile */,
@@ -136,12 +138,13 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		37AF5F432C020BA500148ECF /* UI_Funcs */ = {
+		37AF5F432C020BA500148ECF /* Funcs */ = {
 			isa = PBXGroup;
 			children = (
 				37AF5F442C020BBB00148ECF /* AppUI.swift */,
+				37AF5F502C038C6B00148ECF /* PasswordEncrypter.swift */,
 			);
-			path = UI_Funcs;
+			path = Funcs;
 			sourceTree = "<group>";
 		};
 		37AF5F462C0344DF00148ECF /* Singleton */ = {
@@ -255,6 +258,7 @@
 				37AF5F452C020BBB00148ECF /* AppUI.swift in Sources */,
 				37AF5F4D2C03595700148ECF /* EnterVC.swift in Sources */,
 				37AF5F242C01E4D400148ECF /* SceneDelegate.swift in Sources */,
+				37AF5F512C038C6B00148ECF /* PasswordEncrypter.swift in Sources */,
 				37AF5F3D2C02063E00148ECF /* RegisterItem.swift in Sources */,
 				37AF5F4B2C0345D200148ECF /* String.ext.swift in Sources */,
 			);
