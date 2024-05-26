@@ -1,8 +1,14 @@
-//
-//  RegisterItem.swift
-//  HW1
-//
-//  Created by Павел Градов on 25.05.2024.
-//
-
 import Foundation
+
+struct RegisterItem : Identifiable {
+    internal var id : String = UUID().uuidString
+    let textField : String
+    
+    static internal func getMockData() -> [RegisterItem] {
+        [
+            RegisterItem(textField: "Имя"),
+            RegisterItem(textField: "Почта"),
+            RegisterItem(textField: "Пароль")
+        ]
+    }
+}
