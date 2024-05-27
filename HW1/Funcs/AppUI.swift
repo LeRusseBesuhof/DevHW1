@@ -81,9 +81,11 @@ final class AppUI {
             $0.layer.cornerRadius = 5
             $0.setImage(UIImage(named: image), for: .normal)
             $0.setTitle(text, for: .normal)
+            $0.setTitleColor(.white, for: .normal)
             $0.configuration?.imagePlacement = .leading
             $0.configuration?.imagePadding = 27
-            $0.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 12, bottom: 10, trailing: 10)
+            // $0.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: -70, bottom: 0, trailing: 0)
+            $0.configuration?.contentInsets.leading -= $0.frame.minX
             return $0
         }(UIButton(configuration: btnConfig, primaryAction: UIAction(handler: { _ in
             print("Открыть \(text)")

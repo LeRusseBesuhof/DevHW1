@@ -29,22 +29,28 @@ final class ProfileVC: UIViewController {
     
     // private lazy var myAccountView : UIView = AppUI.createView(withBGColor: .appProfileCell, cornerRadius: 5)
     
-    private lazy var myAccountButton : UIButton = {
-        return $0
-    }
+    private lazy var myAccountButton : UIButton = AppUI.createProfileButton(image: "user", text: "Мой аккаунт")
     
-    private lazy var stackView : UIStackView = {
-        $0.axis = .vertical
-        $0.spacing = 10
-        $0.alignment = .center
-        $0.distribution = .equalSpacing
-        return $0
+    private lazy var settingsButton : UIButton = AppUI.createProfileButton(image: "user", text: "Настройки")
+    // "gearshape"
+    
+    private lazy var helpButton : UIButton = AppUI.createProfileButton(image: "user", text: "Помощь")
+    // "ellipsis.message"
+    
+    private lazy var stackView : UIStackView = { st in
+        st.axis = .vertical
+        st.spacing = 10
+        st.alignment = .fill
+        st.distribution = .fillEqually
+        st.backgroundColor = .gray
+        [myAccountButton, settingsButton, helpButton].forEach { st.addArrangedSubview($0) }
+        return st
     }(UIStackView(frame: CGRect(x: 70, y: emailLabel.frame.maxY + 40, width: view.frame.width - 140, height: 152)))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
         
-        [myProfileLabel, profileImageView, emailLabel].forEach { view.addSubview($0) }
+        [myProfileLabel, profileImageView, emailLabel, stackView].forEach { view.addSubview($0) }
     }
 }
