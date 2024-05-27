@@ -9,4 +9,8 @@ final class PasswordActor {
         }
         return hiddenString
     }
+    
+    static func checkData(nickName: String, password: String) -> Bool {
+        nickName == Service.shared.nickName && password == Service.shared.password
+    }
 }

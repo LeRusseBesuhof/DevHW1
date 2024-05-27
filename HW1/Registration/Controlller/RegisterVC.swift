@@ -11,7 +11,7 @@ final class RegisterVC: UIViewController, VCProtocol {
     internal lazy var tableView : UITableView = {
         $0.dataSource = self
         $0.delegate = self
-        $0.register(TableCell.self, forCellReuseIdentifier: TableCell.reuseID)
+        $0.register(RegisterCell.self, forCellReuseIdentifier: RegisterCell.reuseID)
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
         return $0
@@ -24,7 +24,7 @@ final class RegisterVC: UIViewController, VCProtocol {
         fontSize: 14, fontWeight: .regular)
     
     private lazy var bigButtonAction : UIAction = UIAction { _ in
-        if let nickName = Service.shared.nickName, let email = Service.shared.email, let password =  Service.shared.password {
+        if !Service.shared.nickName.isEmpty, !Service.shared.email.isEmpty, !Service.shared.password.isEmpty {
             NotificationCenter.default.post(Notification(name: Notification.Name(.setEnterRoot)))
         } else {
             print("Incorrect Registration Data! Please fill all text fields!")
@@ -45,7 +45,7 @@ final class RegisterVC: UIViewController, VCProtocol {
     }
     
     internal lazy var smallButton: UIButton = AppUI.createButton(
-        withSize: CGRect(x: accountlabel.frame.maxX + 10, y: accountlabel.frame.minY, width: 60, height: accountlabel.frame.height), 
+        withSize: CGRect(x: accountlabel.frame.maxX + 10, y: accountlabel.frame.minY + 1, width: 60, height: accountlabel.frame.height),
         titleText: "ВОЙТИ", titleColor: .appPurple, bgColor: .clear, action: smallButtonAction)
     
     override func viewDidLoad() {
@@ -72,7 +72,7 @@ extension RegisterVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let item = tableData[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableCell.reuseID, for: indexPath) as? TableCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RegisterCell.reuseID, for: indexPath) as? RegisterCell else { return UITableViewCell() }
         cell.setUpCell(with: item, row: indexPath.row)
         return cell
     }

@@ -1,14 +1,12 @@
 import UIKit
 
-final class TableCell: UITableViewCell, CellProtocol {
+final class RegisterCell: UITableViewCell, CellProtocol {
     
     static internal let reuseID: String = "register"
 
     private lazy var canvasView : UIView = UIView(frame: frame)
     
     private lazy var textField : UITextField = AppUI.createTextField(withSize: CGRect(x: 0, y: 0, width: canvasView.frame.width, height: 70))
-    
-    private var currentPassword = ""
     
     private var hiddenFlag = true
     
@@ -37,6 +35,7 @@ final class TableCell: UITableViewCell, CellProtocol {
     @objc func changeHiddenFlagState(sender: UIButton) {
         hiddenFlag ? sender.setImage(UIImage(systemName: "eye"), for: .normal) : sender.setImage(UIImage(systemName: "eye.fill"), for: .normal)
         hiddenFlag = !hiddenFlag
+        textField.text! = hiddenFlag ? PasswordActor.encrypt(text: textField.text!) : Service.shared.password
     }
     
     @objc func textFieldDidChanged(textField: UITextField) {
@@ -45,9 +44,8 @@ final class TableCell: UITableViewCell, CellProtocol {
             case 0: Service.shared.nickName = text
             case 1: Service.shared.email = text
             default: 
-                currentPassword += String(text.last!)
-                textField.text! = hiddenFlag ? PasswordActor.encrypt(text: textField.text!) : currentPassword
-                Service.shared.password = currentPassword
+                Service.shared.password += String(text.last!)
+                textField.text! = hiddenFlag ? PasswordActor.encrypt(text: textField.text!) : Service.shared.password
             }
         }
     }

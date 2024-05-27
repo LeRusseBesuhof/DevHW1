@@ -13,14 +13,17 @@
 		37AF5F2B2C01E4D600148ECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37AF5F2A2C01E4D600148ECF /* Assets.xcassets */; };
 		37AF5F2E2C01E4D600148ECF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 37AF5F2D2C01E4D600148ECF /* Base */; };
 		37AF5F3A2C02061800148ECF /* RegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F392C02061800148ECF /* RegisterCell.swift */; };
-		37AF5F3D2C02063E00148ECF /* RegisterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F3C2C02063E00148ECF /* RegisterItem.swift */; };
+		37AF5F3D2C02063E00148ECF /* TableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F3C2C02063E00148ECF /* TableItem.swift */; };
 		37AF5F402C0206C500148ECF /* VCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F3F2C0206C500148ECF /* VCProtocol.swift */; };
 		37AF5F422C0207FF00148ECF /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F412C0207FF00148ECF /* CellProtocol.swift */; };
 		37AF5F452C020BBB00148ECF /* AppUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F442C020BBB00148ECF /* AppUI.swift */; };
 		37AF5F482C0344F900148ECF /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F472C0344F900148ECF /* Service.swift */; };
 		37AF5F4B2C0345D200148ECF /* String.ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F4A2C0345D200148ECF /* String.ext.swift */; };
 		37AF5F4D2C03595700148ECF /* EnterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F4C2C03595700148ECF /* EnterVC.swift */; };
-		37AF5F512C038C6B00148ECF /* PasswordEncrypter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F502C038C6B00148ECF /* PasswordEncrypter.swift */; };
+		37AF5F512C038C6B00148ECF /* PasswordActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F502C038C6B00148ECF /* PasswordActor.swift */; };
+		37AF5F572C0390AE00148ECF /* ItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F562C0390AE00148ECF /* ItemProtocol.swift */; };
+		37AF5F5E2C04A5CD00148ECF /* EnterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F5D2C04A5CD00148ECF /* EnterCell.swift */; };
+		37AF5F612C04A7BD00148ECF /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF5F602C04A7BD00148ECF /* ProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,14 +35,17 @@
 		37AF5F2D2C01E4D600148ECF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37AF5F2F2C01E4D600148ECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37AF5F392C02061800148ECF /* RegisterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCell.swift; sourceTree = "<group>"; };
-		37AF5F3C2C02063E00148ECF /* RegisterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterItem.swift; sourceTree = "<group>"; };
+		37AF5F3C2C02063E00148ECF /* TableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableItem.swift; sourceTree = "<group>"; };
 		37AF5F3F2C0206C500148ECF /* VCProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCProtocol.swift; sourceTree = "<group>"; };
 		37AF5F412C0207FF00148ECF /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
 		37AF5F442C020BBB00148ECF /* AppUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUI.swift; sourceTree = "<group>"; };
 		37AF5F472C0344F900148ECF /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		37AF5F4A2C0345D200148ECF /* String.ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.ext.swift; sourceTree = "<group>"; };
 		37AF5F4C2C03595700148ECF /* EnterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVC.swift; sourceTree = "<group>"; };
-		37AF5F502C038C6B00148ECF /* PasswordEncrypter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEncrypter.swift; sourceTree = "<group>"; };
+		37AF5F502C038C6B00148ECF /* PasswordActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordActor.swift; sourceTree = "<group>"; };
+		37AF5F562C0390AE00148ECF /* ItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemProtocol.swift; sourceTree = "<group>"; };
+		37AF5F5D2C04A5CD00148ECF /* EnterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCell.swift; sourceTree = "<group>"; };
+		37AF5F602C04A7BD00148ECF /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,13 +78,14 @@
 		37AF5F202C01E4D400148ECF /* HW1 */ = {
 			isa = PBXGroup;
 			children = (
+				37AF5F3B2C02062E00148ECF /* Model */,
 				37AF5F492C0345C800148ECF /* Extension */,
 				37AF5F462C0344DF00148ECF /* Singleton */,
 				37AF5F432C020BA500148ECF /* Funcs */,
 				37AF5F3E2C0206AC00148ECF /* Protocol */,
 				37AF5F352C0203EC00148ECF /* Registration */,
-				37AF5F372C02040600148ECF /* Profile */,
 				37AF5F362C0203FD00148ECF /* Enter */,
+				37AF5F372C02040600148ECF /* Profile */,
 				37AF5F212C01E4D400148ECF /* AppDelegate.swift */,
 				37AF5F232C01E4D400148ECF /* SceneDelegate.swift */,
 				37AF5F2A2C01E4D600148ECF /* Assets.xcassets */,
@@ -91,8 +98,7 @@
 		37AF5F352C0203EC00148ECF /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				37AF5F4E2C0376D300148ECF /* Controller */,
-				37AF5F3B2C02062E00148ECF /* Model */,
+				37AF5F5A2C04A5A200148ECF /* Controlller */,
 				37AF5F382C02060600148ECF /* Cell */,
 			);
 			path = Registration;
@@ -101,7 +107,8 @@
 		37AF5F362C0203FD00148ECF /* Enter */ = {
 			isa = PBXGroup;
 			children = (
-				37AF5F4F2C0376EB00148ECF /* Controller */,
+				37AF5F5C2C04A5C100148ECF /* Controller */,
+				37AF5F5B2C04A5B800148ECF /* Cell */,
 			);
 			path = Enter;
 			sourceTree = "<group>";
@@ -109,6 +116,7 @@
 		37AF5F372C02040600148ECF /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				37AF5F5F2C04A7A700148ECF /* Controller */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -124,7 +132,7 @@
 		37AF5F3B2C02062E00148ECF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				37AF5F3C2C02063E00148ECF /* RegisterItem.swift */,
+				37AF5F3C2C02063E00148ECF /* TableItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 			children = (
 				37AF5F3F2C0206C500148ECF /* VCProtocol.swift */,
 				37AF5F412C0207FF00148ECF /* CellProtocol.swift */,
+				37AF5F562C0390AE00148ECF /* ItemProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -142,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				37AF5F442C020BBB00148ECF /* AppUI.swift */,
-				37AF5F502C038C6B00148ECF /* PasswordEncrypter.swift */,
+				37AF5F502C038C6B00148ECF /* PasswordActor.swift */,
 			);
 			path = Funcs;
 			sourceTree = "<group>";
@@ -163,18 +172,34 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		37AF5F4E2C0376D300148ECF /* Controller */ = {
+		37AF5F5A2C04A5A200148ECF /* Controlller */ = {
 			isa = PBXGroup;
 			children = (
 				37AF5F252C01E4D400148ECF /* RegisterVC.swift */,
 			);
-			path = Controller;
+			path = Controlller;
 			sourceTree = "<group>";
 		};
-		37AF5F4F2C0376EB00148ECF /* Controller */ = {
+		37AF5F5B2C04A5B800148ECF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				37AF5F5D2C04A5CD00148ECF /* EnterCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		37AF5F5C2C04A5C100148ECF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				37AF5F4C2C03595700148ECF /* EnterVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		37AF5F5F2C04A7A700148ECF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				37AF5F602C04A7BD00148ECF /* ProfileVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -249,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37AF5F612C04A7BD00148ECF /* ProfileVC.swift in Sources */,
 				37AF5F262C01E4D400148ECF /* RegisterVC.swift in Sources */,
 				37AF5F402C0206C500148ECF /* VCProtocol.swift in Sources */,
 				37AF5F222C01E4D400148ECF /* AppDelegate.swift in Sources */,
@@ -257,9 +283,11 @@
 				37AF5F482C0344F900148ECF /* Service.swift in Sources */,
 				37AF5F452C020BBB00148ECF /* AppUI.swift in Sources */,
 				37AF5F4D2C03595700148ECF /* EnterVC.swift in Sources */,
+				37AF5F5E2C04A5CD00148ECF /* EnterCell.swift in Sources */,
 				37AF5F242C01E4D400148ECF /* SceneDelegate.swift in Sources */,
-				37AF5F512C038C6B00148ECF /* PasswordEncrypter.swift in Sources */,
-				37AF5F3D2C02063E00148ECF /* RegisterItem.swift in Sources */,
+				37AF5F512C038C6B00148ECF /* PasswordActor.swift in Sources */,
+				37AF5F3D2C02063E00148ECF /* TableItem.swift in Sources */,
+				37AF5F572C0390AE00148ECF /* ItemProtocol.swift in Sources */,
 				37AF5F4B2C0345D200148ECF /* String.ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

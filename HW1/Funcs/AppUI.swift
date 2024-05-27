@@ -3,14 +3,6 @@ import UIKit
 
 final class AppUI {
     
-    static func createView(withSize size: CGRect, bgColor: UIColor, cornerRadius: CGFloat) -> UIView {
-        {
-            $0.backgroundColor = bgColor
-            $0.layer.cornerRadius = cornerRadius
-            return $0
-        }(UIView(frame: size))
-    }
-    
     static func createTextField(withSize size: CGRect) -> UITextField {
         {
             $0.backgroundColor = .white
@@ -33,4 +25,25 @@ final class AppUI {
         }(UILabel(frame: size))
     }
     
+    static func createTitleView(withSize size: CGRect, titleText: String) -> UIView {
+        {
+            $0.addSubview(AppUI.createLabel(
+                withSize: CGRect(x: 0, y: 0, width: $0.frame.width, height: 40),
+                text: titleText, textColor: .white, textAlignment: .center,
+                fontSize: 34, fontWeight: .bold))
+            return $0
+        }(UIView(frame: size))
+    }
+    
+    static func createButton(withSize size: CGRect, titleText: String, titleColor: UIColor, bgColor: UIColor, action: UIAction) -> UIButton {
+        {
+            $0.backgroundColor = bgColor
+            $0.layer.cornerRadius = 15
+            $0.setTitle(titleText, for: .normal)
+            $0.setTitleColor(titleColor, for: .normal)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            $0.addAction(action, for: .touchDown)
+            return $0
+        }(UIButton(frame: size))
+    }
 }

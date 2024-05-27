@@ -13,21 +13,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
         guard let window = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: window)
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = RegisterVC()
         
         NotificationCenter.default.addObserver(self, selector: #selector(setEnterRoot(notification: )), name: NSNotification.Name(.setEnterRoot), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(setProfileRoot(notification: )), name: NSNotification.Name(.setProfileRoot), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(setRegisterRoot(notification: )), name: NSNotification.Name(.setRegisterRoot), object: nil)
+    }
+    
+    @objc func setRegisterRoot(notification: Notification) {
+        self.window?.rootViewController = RegisterVC()
     }
 
-    @objc
-    func setEnterRoot(notification: Notification) {
-        // print(Service.shared.password)
+    @objc func setEnterRoot(notification: Notification) {
         self.window?.rootViewController = EnterVC()
+    }
+    
+    @objc func setProfileRoot(notification: Notification) {
+        self.window?.rootViewController = ProfileVC()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
