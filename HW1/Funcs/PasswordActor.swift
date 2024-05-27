@@ -1,6 +1,6 @@
 import Foundation
 
-final class PasswordEncrypter {
+final class PasswordActor {
     static func encrypt(text: String) -> String {
         let length = text.count
         var hiddenString = ""

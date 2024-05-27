@@ -1,10 +1,10 @@
 import UIKit
 
-final class RegisterCell: UITableViewCell, CellProtocol {
+final class TableCell: UITableViewCell, CellProtocol {
     
     static internal let reuseID: String = "register"
 
-    private lazy var canvasView : UIView = AppUI.createView(withSize: frame, bgColor: .clear, cornerRadius: 0)
+    private lazy var canvasView : UIView = UIView(frame: frame)
     
     private lazy var textField : UITextField = AppUI.createTextField(withSize: CGRect(x: 0, y: 0, width: canvasView.frame.width, height: 70))
     
@@ -12,16 +12,14 @@ final class RegisterCell: UITableViewCell, CellProtocol {
     
     private var hiddenFlag = true
     
-    func setUpCell(with item: RegisterItem, row: Int) {
+    func setUpCell(with item: TableItem, row: Int) {
         selectionStyle = .none
         backgroundColor = .clear
-        
-        // TODO: make eye button
         
         textField.tag = row
         textField.placeholder = item.textField
         textField.addTarget(self, action: #selector(textFieldDidChanged(textField: )), for: .editingChanged)
-        if row == 2 {
+        if item.textField == "Пароль" {
             let rightView = UIView(frame: CGRect(x: textField.frame.maxX - 55, y: 0, width: 55, height: textField.frame.height))
             let btn : UIButton = {
                 $0.setImage(UIImage(systemName: "eye.fill"), for: .normal)
@@ -48,7 +46,7 @@ final class RegisterCell: UITableViewCell, CellProtocol {
             case 1: Service.shared.email = text
             default: 
                 currentPassword += String(text.last!)
-                textField.text! = hiddenFlag ? PasswordEncrypter.encrypt(text: textField.text!) : currentPassword
+                textField.text! = hiddenFlag ? PasswordActor.encrypt(text: textField.text!) : currentPassword
                 Service.shared.password = currentPassword
             }
         }
