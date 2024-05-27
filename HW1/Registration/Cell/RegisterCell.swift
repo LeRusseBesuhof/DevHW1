@@ -43,8 +43,10 @@ final class RegisterCell: UITableViewCell, CellProtocol {
             switch textField.tag {
             case 0: Service.shared.nickName = text
             case 1: Service.shared.email = text
-            default: 
-                Service.shared.password += String(text.last!)
+            default:
+                // как сделать так, чтобы при стирании не добавлялись звёздочки?
+                Service.shared.password += text.last != nil ? String(text.last!) : ""
+                print(Service.shared.password)
                 textField.text! = hiddenFlag ? PasswordActor.encrypt(text: textField.text!) : Service.shared.password
             }
         }

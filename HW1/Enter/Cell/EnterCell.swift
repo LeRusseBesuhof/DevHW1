@@ -38,6 +38,7 @@ final class EnterCell: UITableViewCell, CellProtocol {
     @objc func changeHiddenFlagState(sender: UIButton) {
         hiddenFlag ? sender.setImage(UIImage(systemName: "eye"), for: .normal) : sender.setImage(UIImage(systemName: "eye.fill"), for: .normal)
         hiddenFlag = !hiddenFlag
+        textField.text! = hiddenFlag ? PasswordActor.encrypt(text: textField.text!) : EnterCell.currentPassword
     }
     
     @objc func textFieldDidChanged(textField: UITextField) {

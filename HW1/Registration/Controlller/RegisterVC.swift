@@ -2,7 +2,7 @@ import UIKit
 
 final class RegisterVC: UIViewController, VCProtocol {
     
-    private lazy var screenRatio = view.frame.width / view.frame.height
+    private lazy var screenRatio = view.frame.height / 932
     
     private lazy var titleView : UIView = AppUI.createTitleView(withSize: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 65), titleText: "Регистрация")
 
@@ -15,7 +15,7 @@ final class RegisterVC: UIViewController, VCProtocol {
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
         return $0
-    }(UITableView(frame: CGRect(x: 25, y: 343 * screenRatio, width: view.frame.width - 50, height: 330)))
+    }(UITableView(frame: CGRect(x: 25, y: 283 * screenRatio, width: view.frame.width - 50, height: 330)))
     
     private lazy var privacyLabel = AppUI.createLabel(
         withSize: CGRect(x: tableView.frame.minX, y: tableView.frame.maxY + 15, width: tableView.frame.width, height: 35),
@@ -36,7 +36,7 @@ final class RegisterVC: UIViewController, VCProtocol {
         titleText: "РЕГИСТРАЦИЯ", titleColor: .white, bgColor: .appPurple, action: bigButtonAction)
     
     internal lazy var accountlabel: UILabel = AppUI.createLabel(
-        withSize: CGRect(x: 100 * screenRatio, y: bigButton.frame.maxY + 30, width: 170, height: 28),
+        withSize: CGRect(x: 90 * screenRatio, y: bigButton.frame.maxY + 30, width: 170, height: 28),
         text: "Уже есть аккаунт?", textColor: .appGray, textAlignment: .center,
         fontSize: 18, fontWeight: .regular)
     

@@ -17,7 +17,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let window = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: window)
         self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = RegisterVC()
+        self.window?.rootViewController = ProfileVC()
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(setEnterRoot(notification: )), name: NSNotification.Name(.setEnterRoot), object: nil)
         

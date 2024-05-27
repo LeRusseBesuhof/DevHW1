@@ -2,7 +2,7 @@ import UIKit
 
 final class EnterVC: UIViewController, VCProtocol {
     
-    private lazy var screenRatio = view.frame.width / view.frame.height
+    private lazy var screenRatio = view.frame.height / 932
     
     private lazy var titleView : UIView = AppUI.createTitleView(withSize: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 65), titleText: "Войти")
     
@@ -15,7 +15,7 @@ final class EnterVC: UIViewController, VCProtocol {
         $0.backgroundColor = .clear
         $0.separatorStyle = .none
         return $0
-    }(UITableView(frame: CGRect(x: 25, y: 386 * screenRatio, width: view.frame.width - 50, height: 245)))
+    }(UITableView(frame: CGRect(x: 25, y: 326 * screenRatio, width: view.frame.width - 50, height: 245)))
     
     private lazy var wrongDataLabel : UILabel = AppUI.createLabel(
         withSize: CGRect(x: tableView.frame.minX, y: tableView.frame.maxY, width: tableView.frame.width, height: 20),
