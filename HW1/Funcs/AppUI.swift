@@ -56,21 +56,6 @@ final class AppUI {
         }(UIImageView(frame: size))
     }
     
-    // delete
-    static func createView(withBGColor color: UIColor, cornerRadius: CGFloat, image: String, text: String) -> UIView {
-        {
-            $0.backgroundColor = color
-            $0.layer.cornerRadius = cornerRadius
-            let imageView = AppUI.createImageView(withSize: CGRect(x: 12, y: 10, width: 24, height: 24), image: image)
-            let textLabel = AppUI.createLabel(
-                withSize: CGRect(x: imageView.frame.maxX + 27, y: 15, width: $0.frame.width - imageView.frame.width - 54, height: 14),
-                text: text, textColor: .white, textAlignment: .left,
-                fontSize: 14, fontWeight: .bold)
-            // [imageView, textLabel].forEach { }
-            return $0
-        }(UIView())
-    }
-    
     static func createProfileButton(image: String, text: String) -> UIButton {
         let btnConfig : UIButton.Configuration = {
             return $0
@@ -79,13 +64,13 @@ final class AppUI {
         return {
             $0.backgroundColor = .appProfileCell
             $0.layer.cornerRadius = 5
-            $0.setImage(UIImage(named: image), for: .normal)
+            $0.contentHorizontalAlignment = .leading
+            $0.setImage(UIImage(systemName: image), for: .normal)
             $0.setTitle(text, for: .normal)
             $0.setTitleColor(.white, for: .normal)
+            $0.tintColor = .white
             $0.configuration?.imagePlacement = .leading
             $0.configuration?.imagePadding = 27
-            // $0.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: -70, bottom: 0, trailing: 0)
-            $0.configuration?.contentInsets.leading -= $0.frame.minX
             return $0
         }(UIButton(configuration: btnConfig, primaryAction: UIAction(handler: { _ in
             print("Открыть \(text)")

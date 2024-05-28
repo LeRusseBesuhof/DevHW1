@@ -25,32 +25,38 @@ final class ProfileVC: UIViewController {
         text: Service.shared.email, textColor: .white, textAlignment: .center,
         fontSize: 28, fontWeight: .bold)
     
-    // TODO: сделать, чтобы это было кнопкой
+    private lazy var myAccountButton : UIButton = AppUI.createProfileButton(image: "person", text: "Мой аккаунт")
     
-    // private lazy var myAccountView : UIView = AppUI.createView(withBGColor: .appProfileCell, cornerRadius: 5)
+    private lazy var settingsButton : UIButton = AppUI.createProfileButton(image: "gearshape", text: "Настройки")
     
-    private lazy var myAccountButton : UIButton = AppUI.createProfileButton(image: "user", text: "Мой аккаунт")
-    
-    private lazy var settingsButton : UIButton = AppUI.createProfileButton(image: "user", text: "Настройки")
-    // "gearshape"
-    
-    private lazy var helpButton : UIButton = AppUI.createProfileButton(image: "user", text: "Помощь")
-    // "ellipsis.message"
+    private lazy var helpButton : UIButton = AppUI.createProfileButton(image: "ellipsis.message", text: "Помощь")
     
     private lazy var stackView : UIStackView = { st in
         st.axis = .vertical
         st.spacing = 10
         st.alignment = .fill
         st.distribution = .fillEqually
-        st.backgroundColor = .gray
         [myAccountButton, settingsButton, helpButton].forEach { st.addArrangedSubview($0) }
         return st
     }(UIStackView(frame: CGRect(x: 70, y: emailLabel.frame.maxY + 40, width: view.frame.width - 140, height: 152)))
+    
+    private lazy var exitButton : UIButton = {
+        $0.backgroundColor = .appProfileCell
+        $0.layer.cornerRadius = 5
+        $0.tintColor = .white
+        $0.setTitle("Выход", for: .normal)
+        return $0
+    }(UIButton(
+        frame: CGRect(x: stackView.frame.minX, y: stackView.frame.maxY + 150 * screenRatio, width: stackView.frame.width, height: 44),
+        primaryAction: UIAction(handler: { _ in
+            NotificationCenter.default.post(Notification(name: Notification.Name(.setEnterRoot)))
+        })
+    ))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
         
-        [myProfileLabel, profileImageView, emailLabel, stackView].forEach { view.addSubview($0) }
+        [myProfileLabel, profileImageView, emailLabel, stackView, exitButton].forEach { view.addSubview($0) }
     }
 }
