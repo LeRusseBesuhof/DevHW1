@@ -4,7 +4,7 @@ final class RegisterVC: UIViewController, VCProtocol {
     
     private lazy var screenRatio = view.frame.height / 932
     
-    private lazy var titleView : UIView = AppUI.createTitleView(withSize: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 65), titleText: "Регистрация")
+    private lazy var titleView : UIView = AppUI.createTitleView(withSize: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 65), titleText: "Регистрация", font: UIFont.getComfortaaFont(fontType: .bold, fontSize: 34))
 
     private let tableData : [TableItem] = TableItem.getMockRegisterData()
     
@@ -21,7 +21,7 @@ final class RegisterVC: UIViewController, VCProtocol {
         withSize: CGRect(x: tableView.frame.minX, y: tableView.frame.maxY + 15, width: tableView.frame.width, height: 35),
         text: "Я согласен с Условиями предоставления услуг и Политикой конфиденциальности",
         textColor: .appGray, textAlignment: .left,
-        fontSize: 14, fontWeight: .regular)
+        font: UIFont.getLibreBaskervilleFont(fontType: .bold, fontSize: 14))
     
     private lazy var bigButtonAction : UIAction = UIAction { _ in
         if !Service.shared.nickName.isEmpty, !Service.shared.email.isEmpty, !Service.shared.password.isEmpty {
@@ -33,20 +33,20 @@ final class RegisterVC: UIViewController, VCProtocol {
     
     internal lazy var bigButton: UIButton = AppUI.createButton(
         withSize: CGRect(x: privacyLabel.frame.minX, y: privacyLabel.frame.maxY + 50, width: privacyLabel.frame.width, height: 70),
-        titleText: "РЕГИСТРАЦИЯ", titleColor: .white, bgColor: .appPurple, action: bigButtonAction)
+        titleText: "РЕГИСТРАЦИЯ", titleColor: .white, bgColor: .appPurple, action: bigButtonAction, font: UIFont.getComfortaaFont(fontType: .bold))
     
     internal lazy var accountlabel: UILabel = AppUI.createLabel(
         withSize: CGRect(x: 90 * screenRatio, y: bigButton.frame.maxY + 30, width: 170, height: 28),
         text: "Уже есть аккаунт?", textColor: .appGray, textAlignment: .center,
-        fontSize: 18, fontWeight: .regular)
+        font: UIFont.getLibreBaskervilleFont(fontSize: 18))
     
     private lazy var smallButtonAction : UIAction = UIAction { _ in
         NotificationCenter.default.post(Notification(name: Notification.Name(.setEnterRoot)))
     }
     
     internal lazy var smallButton: UIButton = AppUI.createButton(
-        withSize: CGRect(x: accountlabel.frame.maxX + 10, y: accountlabel.frame.minY + 1, width: 60, height: accountlabel.frame.height),
-        titleText: "ВОЙТИ", titleColor: .appPurple, bgColor: .clear, action: smallButtonAction)
+        withSize: CGRect(x: accountlabel.frame.maxX + 10, y: accountlabel.frame.minY + 1, width: 70, height: accountlabel.frame.height),
+        titleText: "ВОЙТИ", titleColor: .appPurple, bgColor: .clear, action: smallButtonAction, font: UIFont.getComfortaaFont(fontType: .bold))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,6 @@ final class RegisterVC: UIViewController, VCProtocol {
     }
     
     @objc func passwordShowMode(sender: UIButton) {
-        // print(Service.shared.nickName, Service.shared.email, Service.shared.password)
         if Service.shared.nickName != "user" && Service.shared.email != "ivanIvanov@gmail.com" && Service.shared.password != "admin" {
             NotificationCenter.default.post(Notification(name: Notification.Name(.setEnterRoot)))
         } else {

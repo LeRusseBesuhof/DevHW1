@@ -6,7 +6,7 @@ final class RegisterCell: UITableViewCell, CellProtocol {
 
     private lazy var canvasView : UIView = UIView(frame: frame)
     
-    private lazy var textField : UITextField = AppUI.createTextField(withSize: CGRect(x: 0, y: 0, width: canvasView.frame.width, height: 70))
+    private lazy var textField : UITextField = AppUI.createTextField(withSize: CGRect(x: 0, y: 0, width: canvasView.frame.width, height: 70), font: UIFont.getLibreBaskervilleFont())
     
     private var hiddenFlag = true
     
@@ -46,7 +46,6 @@ final class RegisterCell: UITableViewCell, CellProtocol {
             default:
                 // как сделать так, чтобы при стирании не добавлялись звёздочки?
                 Service.shared.password += text.last != nil ? String(text.last!) : ""
-                print(Service.shared.password)
                 textField.text! = hiddenFlag ? PasswordActor.encrypt(text: textField.text!) : Service.shared.password
             }
         }

@@ -6,9 +6,9 @@ final class EnterCell: UITableViewCell, CellProtocol {
 
     private lazy var canvasView : UIView = UIView(frame: frame)
     
-    private lazy var textField : UITextField = AppUI.createTextField(withSize: CGRect(x: 0, y: 0, width: canvasView.frame.width, height: 70))
+    private lazy var textField : UITextField = AppUI.createTextField(withSize: CGRect(x: 0, y: 0, width: canvasView.frame.width, height: 70), font: UIFont.getLibreBaskervilleFont())
     
-    static var currentNickName = ""
+    static var currentEmail = ""
     static var currentPassword = ""
     
     private var hiddenFlag = true
@@ -44,11 +44,10 @@ final class EnterCell: UITableViewCell, CellProtocol {
     @objc func textFieldDidChanged(textField: UITextField) {
         if let text = textField.text {
             if textField.tag == 0 {
-                EnterCell.currentNickName = text
+                EnterCell.currentEmail = text
             } else {
-                EnterCell.currentPassword += String(text.last!)
+                EnterCell.currentPassword  += text.last != nil ? String(text.last!) : ""
                 textField.text! = hiddenFlag ? PasswordActor.encrypt(text: textField.text!) : EnterCell.currentPassword
-                Service.shared.password = EnterCell.currentPassword
             }
         }
     }

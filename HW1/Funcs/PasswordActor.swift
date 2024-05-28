@@ -10,7 +10,8 @@ final class PasswordActor {
         return hiddenString
     }
     
-    static func checkData(nickName: String, password: String) -> Bool {
-        nickName == Service.shared.nickName && password == Service.shared.password
+    static func checkData(email: String, password: String) -> Bool {
+        if Service.shared.email.isEmpty && Service.shared.password.isEmpty { return false }
+        else { return email == Service.shared.email && password == Service.shared.password }
     }
 }

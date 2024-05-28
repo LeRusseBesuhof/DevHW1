@@ -4,7 +4,7 @@ final class EnterVC: UIViewController, VCProtocol {
     
     private lazy var screenRatio = view.frame.height / 932
     
-    private lazy var titleView : UIView = AppUI.createTitleView(withSize: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 65), titleText: "Войти")
+    private lazy var titleView : UIView = AppUI.createTitleView(withSize: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 65), titleText: "Войти", font: UIFont.getComfortaaFont(fontType: .bold, fontSize: 34))
     
     private let tableData : [TableItem] = TableItem.getMockEnterData()
     
@@ -20,17 +20,17 @@ final class EnterVC: UIViewController, VCProtocol {
     private lazy var wrongDataLabel : UILabel = AppUI.createLabel(
         withSize: CGRect(x: tableView.frame.minX, y: tableView.frame.maxY, width: tableView.frame.width, height: 20),
         text: "", textColor: .red, textAlignment: .left,
-        fontSize: 14, fontWeight: .regular)
+        font: UIFont.getLibreBaskervilleFont(fontSize: 14))
     
     private lazy var bigButtonAction : UIAction = UIAction { [weak self] _ in
         guard let self = self else { return }
-        let result = PasswordActor.checkData(nickName: EnterCell.currentNickName, password: EnterCell.currentPassword)
+        let result = PasswordActor.checkData(email: EnterCell.currentEmail, password: EnterCell.currentPassword)
         if result {
             NotificationCenter.default.post(Notification(name: Notification.Name(.setProfileRoot)))
         } else {
-            EnterCell.currentNickName = ""
-            EnterCell.currentNickName = ""
             wrongDataLabel.text = "Неверный адрес почты или пароль!"
+            EnterCell.currentEmail = ""
+            EnterCell.currentPassword = ""
             view.addSubview(wrongDataLabel)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 NotificationCenter.default.post(Notification(name: Notification.Name(.setEnterRoot)))
@@ -40,20 +40,23 @@ final class EnterVC: UIViewController, VCProtocol {
     
     internal lazy var bigButton: UIButton = AppUI.createButton(
         withSize: CGRect(x: tableView.frame.minX, y: tableView.frame.maxY + 35, width: tableView.frame.width, height: 70),
-        titleText: "ВОЙТИ", titleColor: .white, bgColor: .appPurple, action: bigButtonAction)
+        titleText: "ВОЙТИ", titleColor: .white, bgColor: .appPurple, action: bigButtonAction, font: UIFont.getComfortaaFont(fontType: .bold))
     
     internal lazy var accountlabel: UILabel = AppUI.createLabel(
-        withSize: CGRect(x: 60 * screenRatio, y: bigButton.frame.maxY + 30, width: 170, height: 28),
+        withSize: CGRect(x: 50 * screenRatio, y: bigButton.frame.maxY + 30, width: 180, height: 28),
         text: "У вас нет аккаунта?", textColor: .appGray, textAlignment: .center,
-        fontSize: 18, fontWeight: .regular)
+        font: UIFont.getLibreBaskervilleFont(fontSize: 18))
     
     private lazy var smallButtonAction : UIAction = UIAction { _ in
+        Service.shared.nickName = ""
+        Service.shared.email = ""
+        Service.shared.password = ""
         NotificationCenter.default.post(Notification(name: Notification.Name(.setRegisterRoot)))
     }
     
     internal lazy var smallButton: UIButton = AppUI.createButton(
         withSize: CGRect(x: accountlabel.frame.maxX + 10, y: accountlabel.frame.minY + 1, width: 130, height: accountlabel.frame.height),
-        titleText: "РЕГИСТРАЦИЯ", titleColor: .appPurple, bgColor: .clear, action: smallButtonAction)
+        titleText: "РЕГИСТРАЦИЯ", titleColor: .appPurple, bgColor: .clear, action: smallButtonAction, font: UIFont.getComfortaaFont(fontType: .bold))
     
     override func viewDidLoad() {
         super.viewDidLoad()

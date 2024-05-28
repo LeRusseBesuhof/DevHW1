@@ -5,7 +5,6 @@ final class Service {
     private init() { }
     
     var nickName : String = ""
-    var email : String = "default@gmail.com"
+    var email : String = ""
     var password : String = ""
-    
 }
