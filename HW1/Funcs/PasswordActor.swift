@@ -5,7 +5,7 @@ final class PasswordActor {
         let length = text.count
         var hiddenString = ""
         for _ in 0..<length {
-            hiddenString += "*"
+            hiddenString += "\u{2022}"
         }
         return hiddenString
     }
